@@ -1,0 +1,19 @@
+<!-- ngClass takes key: value -->
+<!-- key is a class name -->
+
+<div [ngClass]="{highlight: canHighlight}"
+     (mouseenter)="canHighlight = true"
+     (mouseleave)="canHighlight = false"
+
+>
+  <hr />
+
+  <p>Copyrights@ {{year}}, {{company}}</p>
+
+  <button [disabled]="!canHighlight"
+          (click)="handleClick()"
+  >
+    Contact Us {{address.city}}
+  </button>
+
+</div>

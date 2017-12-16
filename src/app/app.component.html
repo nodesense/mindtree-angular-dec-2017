@@ -1,0 +1,25 @@
+<div>
+    <!-- composition -->
+    <app-header>
+    </app-header>
+
+    <h1>Hello {{title}}</h1>
+
+    <app-home>
+    </app-home>
+
+    {{currentYear + 1}}
+    <!-- parent pass data to child -->
+    <!-- [] means expression -->
+    <app-footer [year]="currentYear + 1" 
+                x-company="Angular App"
+
+                [address]="{'city': 'BLR'}"
+                
+                (contactEvent)="onContactUs($event)"
+                
+                
+                >
+    </app-footer>
+
+</div>

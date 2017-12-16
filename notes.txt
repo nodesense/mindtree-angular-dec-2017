@@ -1,0 +1,44 @@
+We shall meet at 2:00 PM
+   
+
+1. Install Node.js 8.9 LTS (6.10 also fine)
+2. Install Chrome
+3. Install Visual Studio Code
+
+----
+> open command prompt
+
+> npm install @angular/cli -g
+
+> ng new product-app
+
+> cd product-app
+
+> ng  serve
+
+open browser with localhost:4200
+
+
+
+Below commands only for Local participants only
+not for webex
+
+open command prompt
+ 
+> npm install @angular/cli -g
+
+> ng new product-app
+
+> cd product-app
+
+> npm start
+
+ 
+
+--
+ng command not found error
+
+Open Run command %APPDATA%/npm
+Copy the path
+go to environement path, add to path to Path Variable
+
