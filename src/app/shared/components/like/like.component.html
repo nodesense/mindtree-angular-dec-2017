@@ -1,9 +1,20 @@
-<div>
+<!-- directive is an attribute level -->
+
+<!-- #myDir="appHighlight" is from export as -->
+
+<!-- myDir refers to directive instance -->
+
+<div appHighlight="green" 
+     #myDir="appHighlight" >
 
   <p> Likes {{likes}}</p>
 
   <button (click)="increment()">
     +1
+  </button>
+
+  <button (click)="myDir.sayColor()">
+    Color
   </button>
 
 </div>

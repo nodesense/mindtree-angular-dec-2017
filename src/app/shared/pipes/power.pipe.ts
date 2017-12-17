@@ -5,8 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PowerPipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
-    return null;
+  //value is always from left of pipe
+  //then optional params delimited by :
+  transform(value: number, exponent: number = 1): number {
+    return Math.pow(value, exponent);
   }
 
 }

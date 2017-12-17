@@ -1,7 +1,7 @@
 <h2>About</h2>
 
 <div >
- <button (click)="addMember()">
+ <button appHighlight (click)="addMember()">
    Add
  </button>
 
@@ -13,7 +13,7 @@
   Show/Hide
 </button>
 
-  <ul *ngIf="showMembers else notShown">
+  <ul  appHighlight *ngIf="showMembers else notShown">
     <li *ngFor="let name of members;let i = index; let e = even;">
       {{i}}-{{name}} -- {{e}}
     </li>

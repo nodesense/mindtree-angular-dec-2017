@@ -9,6 +9,10 @@ export class HomeComponent implements OnInit {
 
   likes: number = 1000;
 
+  price: number = 99.99;
+  title: string = 'Home';
+  today: Date = new Date();
+
   constructor() { }
 
   ngOnInit() {

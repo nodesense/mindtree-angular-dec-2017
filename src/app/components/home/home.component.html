@@ -1,6 +1,14 @@
 <div>
  <h1>Home</h1>
 
+ <p> Upper case {{title | uppercase}} </p>
+ <p> Date {{today | date:'fullDate' | uppercase}}</p>
+ <p> Currency {{price | currency:'INR'}} </p>
+
+ <p> Power 2 => {{ 2 | power }} </p>
+
+ <p> Power 3^2  =>  {{ 3 | power: 2 | power:3 }} </p>
+
  <p>Likes : {{likes}}</p>
 
  <!-- fixed event variable name $event -->
