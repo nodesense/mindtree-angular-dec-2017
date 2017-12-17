@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, 
+          ViewChild,
+          ElementRef
+        } from '@angular/core';
  
 @Component({
   selector: 'app-contact',
@@ -13,14 +16,31 @@ export class ContactComponent implements OnInit {
 
   address: any = undefined; //null
 
-  constructor() { }
 
+  @ViewChild("inp1")
+  inputElement: ElementRef;
+
+  @ViewChild("p1")
+  paraElement: ElementRef;
+
+  //view is not ready
+  constructor() { 
+
+  }
+
+  //called after view init
   ngOnInit() {
      setTimeout ( () => {
        this.address = {
          city: 'BLR'
        }
      }, 2000);
+
+     //nativeElement is DOM Element
+     this.inputElement.nativeElement.focus();
+     this.inputElement
+          .nativeElement.value = "Your name";
+
   }
 
 }
