@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
+import { SharedModule } from './shared/shared.module';
 
 //logical collection
 //components
@@ -15,7 +16,8 @@ import { AboutComponent } from './components/about/about.component';
 @NgModule({
     //module dependencies
     imports: [
-        BrowserModule
+        BrowserModule,
+        SharedModule
     ],
 
     //all components, pipes, directives
