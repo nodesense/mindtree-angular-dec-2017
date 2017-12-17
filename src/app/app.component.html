@@ -3,20 +3,16 @@
     <app-header>
     </app-header>
 
-    <h1>Hello {{title}}</h1>
+     
+    <!-- view place holder/container -->
+    <!-- router shall insert views -->
+    <router-outlet>
 
-    <app-home>
-    </app-home>
+    </router-outlet>
 
-    <app-about>
 
-    </app-about>
 
-    <app-contact>
-        
-    </app-contact>
 
-    {{currentYear + 1}}
     <!-- parent pass data to child -->
     <!-- [] means expression -->
     <app-footer [year]="currentYear + 1" 

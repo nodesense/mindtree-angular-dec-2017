@@ -20,6 +20,8 @@ export class AppComponent implements OnInit {
 
     currentYear: number = 2017;
 
+    showHome: boolean = true;
+
     constructor() {
         this.title = 'Product';
     }

@@ -10,6 +10,26 @@ import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { SharedModule } from './shared/shared.module';
 
+import {RouterModule, Routes} 
+                from "@angular/router";
+
+//route configuration
+const routes: Routes = [
+    {
+        path: '',
+        component: HomeComponent
+    },
+    {
+        path: 'about',
+        component: AboutComponent
+    },
+    {
+        path: 'contact',
+        component: ContactComponent
+    }
+];
+
+
 //logical collection
 //components
 //directives, pipes, services
@@ -17,7 +37,11 @@ import { SharedModule } from './shared/shared.module';
     //module dependencies
     imports: [
         BrowserModule,
-        SharedModule
+        SharedModule,
+
+        //apply route config to angular
+        //forRoot create a module
+        RouterModule.forRoot(routes)
     ],
 
     //all components, pipes, directives
