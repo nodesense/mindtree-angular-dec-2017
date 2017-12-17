@@ -1,4 +1,13 @@
 https://github.com/nodesense/mindtree-angular-dec-2017
+
+ng g module product
+ng g component product/components/product-home
+ng g component product/components/product-list
+ng g component product/components/product-edit
+ng g component product/components/product-search
+
+ng g service product/services/product
+ng g pipe product/pipe/filter
    
 
 1. Install Node.js 8.9 LTS (6.10 also fine)

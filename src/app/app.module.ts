@@ -12,6 +12,7 @@ import { SharedModule } from './shared/shared.module';
 
 import {RouterModule, Routes} 
                 from "@angular/router";
+import { ProductModule } from './product/product.module';
 
 //route configuration
 const routes: Routes = [
@@ -41,7 +42,8 @@ const routes: Routes = [
 
         //apply route config to angular
         //forRoot create a module
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes),
+        ProductModule
     ],
 
     //all components, pipes, directives
