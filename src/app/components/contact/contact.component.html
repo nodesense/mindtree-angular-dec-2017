@@ -1,8 +1,16 @@
 <h2>Contact</h2>
 
 <!-- coming from shared module -->
-<app-like>
+<!--
+<app-like [likes]="contactLikes" 
+          (likesChange)="contactLikes=$event"
+>
 
+</app-like>
+-->
+
+<app-like [(likes)]="contactLikes">
+    
 </app-like>
 
 

@@ -14,6 +14,8 @@ export class ContactComponent implements OnInit {
   //.? elvis operator null check
   // [()] two way binding
 
+  contactLikes : number = 500;
+
   address: any = undefined; //null
 
 
