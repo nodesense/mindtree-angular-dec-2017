@@ -8,18 +8,28 @@
     <app-home>
     </app-home>
 
+    <app-about>
+
+    </app-about>
+
+    <app-contact>
+        
+    </app-contact>
+
     {{currentYear + 1}}
     <!-- parent pass data to child -->
     <!-- [] means expression -->
     <app-footer [year]="currentYear + 1" 
                 x-company="Angular App"
-
                 [address]="{'city': 'BLR'}"
-                
                 (contactEvent)="onContactUs($event)"
-                
-                
                 >
+
+    <!-- content -->
+
+    <p>Contact us between 8:00 AM to 5:00 PM</p>
+
+
     </app-footer>
 
 </div>

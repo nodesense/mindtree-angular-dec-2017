@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { setTimeout } from 'timers';
-
+ 
 //meta data
 //reflection
 @Component ({
@@ -31,6 +30,7 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         console.log("app init");
 
+         
         setTimeout( () => {
             this.title = "Product app";
             this.currentYear += 2;

@@ -1,0 +1,26 @@
+<h2>About</h2>
+
+<div >
+ <button (click)="addMember()">
+   Add
+ </button>
+
+ <button (click)="empty()">
+  Empty
+</button>
+
+<button (click)="toggle()">
+  Show/Hide
+</button>
+
+  <ul *ngIf="showMembers else notShown">
+    <li *ngFor="let name of members;let i = index; let e = even;">
+      {{i}}-{{name}} -- {{e}}
+    </li>
+  </ul>
+
+  <ng-template #notShown>
+    <p>List is not shown</p>
+  </ng-template>
+
+</div>

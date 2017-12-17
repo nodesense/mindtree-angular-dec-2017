@@ -6,6 +6,8 @@ import {BrowserModule}
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { AboutComponent } from './components/about/about.component';
 
 //logical collection
 //components
@@ -22,6 +24,8 @@ import { FooterComponent } from './components/footer/footer.component';
         HomeComponent,
         HeaderComponent,
         FooterComponent,
+        ContactComponent,
+        AboutComponent,
         //HomeComponent,
         //HeaderComponent
         ///...100

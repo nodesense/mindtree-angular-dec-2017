@@ -1,4 +1,4 @@
-We shall meet at 2:00 PM
+https://github.com/nodesense/mindtree-angular-dec-2017
    
 
 1. Install Node.js 8.9 LTS (6.10 also fine)
