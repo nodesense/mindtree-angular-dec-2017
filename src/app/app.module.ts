@@ -14,6 +14,11 @@ import {RouterModule, Routes}
                 from "@angular/router";
 import { ProductModule } from './product/product.module';
 
+import {LocationStrategy,
+        HashLocationStrategy} from '@angular/common';
+
+
+
 //route configuration
 const routes: Routes = [
     {
@@ -29,7 +34,6 @@ const routes: Routes = [
         component: ContactComponent
     }
 ];
-
 
 //logical collection
 //components
@@ -62,6 +66,13 @@ const routes: Routes = [
     //bootstrap 
     bootstrap: [
         AppComponent
+    ],
+
+    providers: [
+        {
+            provide: LocationStrategy, 
+            useClass: HashLocationStrategy
+        }
     ]
 
 })
