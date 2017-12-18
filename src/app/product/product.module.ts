@@ -9,6 +9,12 @@ import { FilterPipe } from './pipes/filter.pipe';
 //route configuration
 import {RouterModule, Routes} from "@angular/router";
 
+import {FormsModule} from '@angular/forms';
+//from Angular 4.3 onwards
+import {HttpClientModule} 
+    from '@angular/common/http';
+import { ProductService, ProductWebService } from './services/product.service';
+
 const routes: Routes = [
   {
     path: 'products',
@@ -42,11 +48,20 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    FormsModule,
+    HttpClientModule
   ],
   declarations: [ProductHomeComponent, 
                  ProductListComponent, 
                  ProductEditComponent, 
                  ProductSearchComponent, 
-                 FilterPipe]
+                 FilterPipe],
+
+  providers: [
+    {
+      provide: ProductService,  //base class/interface
+      useClass: ProductWebService //concrete class to create
+    }
+  ]
 })
 export class ProductModule { }
