@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
 
   products: Product[] = [];
+
+  subscription: Subscription;
 
   constructor(private productService:ProductService) { }
 
@@ -21,7 +24,7 @@ export class ProductListComponent implements OnInit {
   fetchProducts() {
     console.log("fetchProducts begin");
 
-    this.productService.getProducts()
+    this.subscription = this.productService.getProducts()
     .subscribe ( products => {
       //callback
       this.products = products;
@@ -29,6 +32,11 @@ export class ProductListComponent implements OnInit {
     });
 
     console.log("fetchProducts end");
+  }
+
+  ngOnDestroy() {
+    //cancel pendings calls if any
+    this.subscription.unsubscribe();
   }
 
 }

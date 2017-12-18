@@ -2,6 +2,7 @@ import { Component, OnInit, Input,
          Output,
          EventEmitter
 } from '@angular/core';
+import { DataService } from '../../shared/services/data.service';
 
 @Component({
   selector: 'app-footer',
@@ -31,11 +32,15 @@ export class FooterComponent implements OnInit {
 
   canHighlight: boolean = false;
 
+  likes: number;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    
+     this.dataService.likesSubject
+     .subscribe ( n => {
+       this.likes = n;
+     });
   }
 
   handleClick() {

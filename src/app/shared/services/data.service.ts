@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
+
+//next, publish
 import { Subject } from 'rxjs/Subject';
+
+//keep the last known value
+//on subcribe, publish last known value
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 //1. business logic
 //2. communucation logic RESTful api calls
@@ -13,7 +19,7 @@ export class DataService {
   likes: number = 1000;
 
   //Observable
-  likesSubject: Subject<number> = new Subject();
+  likesSubject: BehaviorSubject<number> = new BehaviorSubject(1000);
 
 
   constructor() { 
