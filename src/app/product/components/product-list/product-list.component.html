@@ -1,3 +1,32 @@
-<p>
-  product-list works!
-</p>
+<h2>Product List</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Year</th>
+
+      <th>Delete</th>
+      <th>Edit</th>
+    </tr>
+
+    <tr *ngFor="let product of products">
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.year}}</td>
+
+      <td>
+        <button >
+           Delete
+        </button>
+      </td>
+
+      <td>
+        
+      </td>
+    </tr>
+ 
+
+  </tbody>
+</table>
