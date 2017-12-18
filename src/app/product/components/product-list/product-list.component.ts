@@ -23,6 +23,7 @@ export class ProductListComponent implements OnInit {
 
     this.productService.getProducts()
     .subscribe ( products => {
+      //callback
       this.products = products;
       console.log("got products ", products);
     });

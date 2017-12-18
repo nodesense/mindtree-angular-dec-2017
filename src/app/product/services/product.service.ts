@@ -24,6 +24,7 @@ export class ProductWebService
 
   getProducts(): Observable<Product[]> {
      //es6 template reference variable, back quote, ${}
+     //GET /api/products
      return this.httpClient
             .get<Product[]> (`${environment.apiEndPoint}/api/products`)
   }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 //1. business logic
 //2. communucation logic RESTful api calls
@@ -11,12 +12,19 @@ export class DataService {
 
   likes: number = 1000;
 
+  //Observable
+  likesSubject: Subject<number> = new Subject();
+
+
   constructor() { 
     console.log("dataservice created");
   }
 
   increment() {
     this.likes++;
+
+    //next => Publish 1001, 1002, 1003...
+    this.likesSubject.next(this.likes);
   }
 
   getLikes() {
