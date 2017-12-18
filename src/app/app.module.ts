@@ -69,10 +69,10 @@ const routes: Routes = [
     ],
 
     providers: [
-        {
-            provide: LocationStrategy, 
-            useClass: HashLocationStrategy
-        }
+        // {
+        //     provide: LocationStrategy, 
+        //     useClass: HashLocationStrategy
+        // }
     ]
 
 })

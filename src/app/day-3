@@ -1,0 +1,11 @@
+Pull data from server
+List of data, performance trackBy
+
+Edit product data
+send data to server
+
+Validation - HTML5
+
+RXJS
+Promise
+Guards [canActivate, canDeactivate]

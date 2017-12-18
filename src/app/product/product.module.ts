@@ -13,6 +13,8 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductHomeComponent,
+
+    //nested routing
     children: [
      {
        path: 'list', //  /products/list
