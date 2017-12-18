@@ -14,6 +14,8 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} 
     from '@angular/common/http';
 import { ProductService, ProductWebService } from './services/product.service';
+import { EditGuard } from './guards/edit.guard';
+import { SaveAlertGuard } from './guards/save-alert.guard';
 
 const routes: Routes = [
   {
@@ -33,7 +35,14 @@ const routes: Routes = [
      {
        //edit/:name/:id
        path: 'edit/:id', //products/edit/1234556
-       component: ProductEditComponent
+       component: ProductEditComponent,
+       //angualar shall call edit guard
+       //before loading edit component
+       canActivate: [EditGuard],
+
+       //exit guard
+       //called before unloading a component
+       canDeactivate: [SaveAlertGuard]
      },
 
      {
@@ -62,7 +71,10 @@ const routes: Routes = [
     {
       provide: ProductService,  //base class/interface
       useClass: ProductWebService //concrete class to create
-    }
+    },
+
+    EditGuard,
+    SaveAlertGuard
   ]
 })
 export class ProductModule { }

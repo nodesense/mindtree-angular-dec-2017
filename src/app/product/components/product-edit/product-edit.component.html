@@ -7,12 +7,41 @@
 <!-- NgForm automatically added -->
  
 
-<form (ngSubmit)="saveProduct()" >
+<form (ngSubmit)="saveProduct()" 
+      #productForm="ngForm"
+>
+
+
+<p *ngIf="productForm.invalid">
+  form is invalid
+</p>
+
+
+<p *ngIf="productForm.dirty">
+  form is changed
+</p>
+
+
+
  Name
  <input name="name" 
         [(ngModel)]="product.name"
 
+        required
+        minlength="2"
+
+        #productName="ngModel"
   />
+
+  <p *ngIf="productName.invalid">
+    Name is invalid
+  </p>
+
+
+  <p *ngIf="productName.dirty">
+    Name is changed
+  </p>
+
 
   Price
  <input name="price" 
@@ -23,6 +52,8 @@
   Year
  <input name="year" 
         [(ngModel)]="product.year"
+
+        pattern="[0-9]{4}"
 
   />
 

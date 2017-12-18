@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
-//read dynamic url params /:id
+//read dynamic url params /:id current url
 import {ActivatedRoute,
 
         Router, //programatically navigate
@@ -10,12 +10,17 @@ import { Product } from '../../models/product';
 import { Brand } from '../../models/brand';
 import { ProductService } from '../../services/product.service';
 
+import {NgForm} from '@angular/forms';
+
 @Component({
   selector: 'app-product-edit',
   templateUrl: './product-edit.component.html',
   styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent implements OnInit {
+
+  @ViewChild("productForm")
+  form: NgForm;
 
   //binded - two way binding
   product: Product = new Product();
@@ -52,6 +57,17 @@ export class ProductEditComponent implements OnInit {
 
   //called when save button clicked
   saveProduct() {
+
+    if (this.form.pristine) {
+      alert('no data change');
+      return;
+    }
+
+    if (this.form.invalid) {
+      alert('incorrect data');
+      return;
+    }
+
     /*
         Client sends data to server
                data
@@ -68,6 +84,12 @@ export class ProductEditComponent implements OnInit {
               //option 1 continue with form
               //update local data from server
               this.product =savedProduct;
+
+              //clear error, status
+              this.form.reset(this.product);
+
+              //go to list page
+              //this.router.navigateByUrl("/products/list");
           });
   }
 
