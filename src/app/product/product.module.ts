@@ -31,6 +31,7 @@ const routes: Routes = [
        component: ProductEditComponent
      },
      {
+       //edit/:name/:id
        path: 'edit/:id', //products/edit/1234556
        component: ProductEditComponent
      },
