@@ -7,7 +7,8 @@ import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import {FormsModule, 
   ReactiveFormsModule} from '@angular/forms';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 import { AuthGuard } from './guards/auth.guard';
 import { AdminGuard } from './guards/admin.guard';
@@ -34,7 +35,6 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
@@ -45,7 +45,12 @@ const routes: Routes = [
     AuthGuard,
     AdminGuard, 
     AuthService,
-    IntercepterService
+     
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: IntercepterService,
+      multi: true
+    }
   ]
 })
 export class AuthModule { }

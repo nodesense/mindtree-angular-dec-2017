@@ -13,6 +13,7 @@ import {FormsModule} from '@angular/forms';
 //from Angular 4.3 onwards
 import {HttpClientModule} 
     from '@angular/common/http';
+
 import { ProductService, ProductWebService } from './services/product.service';
 import { EditGuard } from './guards/edit.guard';
 import { SaveAlertGuard } from './guards/save-alert.guard';
@@ -64,7 +65,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
-    HttpClientModule
+   // HttpClientModule
   ],
   declarations: [ProductHomeComponent, 
                  ProductListComponent, 

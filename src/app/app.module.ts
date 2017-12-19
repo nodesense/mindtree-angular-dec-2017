@@ -13,13 +13,14 @@ import { SharedModule } from './shared/shared.module';
 import {RouterModule, Routes} 
                 from "@angular/router";
 
-//import { ProductModule } from './product/product.module';
+import { ProductModule } from './product/product.module';
 
 import {LocationStrategy,
         HashLocationStrategy} from '@angular/common';
 import { AuthModule } from './auth/auth.module';
 
-
+import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './auth/guards/auth.guard';
 
 //route configuration
 const routes: Routes = [
@@ -29,16 +30,19 @@ const routes: Routes = [
     },
     {
         path: 'about',
-        component: AboutComponent
+        component: AboutComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'contact',
         component: ContactComponent
     },
 
-    //dynamic module loading
+   // dynamic module loading
     {
+
         path: 'products',
+        canActivate: [AuthGuard],
         //path to module
         loadChildren: 'app/product/product.module#ProductModule'
     }
@@ -54,11 +58,13 @@ const routes: Routes = [
         BrowserModule,
         SharedModule,
 
+        HttpClientModule,
+
         //apply route config to angular
         //forRoot create a module
         RouterModule.forRoot(routes),
-        AuthModule
-       // ProductModule
+        AuthModule,
+        ProductModule
     ],
 
     //all components, pipes, directives
@@ -80,10 +86,13 @@ const routes: Routes = [
     ],
 
     providers: [
+        //for Enabling hash based routing
+
         // {
         //     provide: LocationStrategy, 
         //     useClass: HashLocationStrategy
         // }
+ 
     ]
 
 })

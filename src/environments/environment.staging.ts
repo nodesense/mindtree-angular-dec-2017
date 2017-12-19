@@ -11,6 +11,7 @@ export const environment = {
   production: false,
 
   //qa url here
-  apiEndPoint: 'http://localhost:7070'
+  apiEndPoint: 'http://localhost:7070',
+  authEndPoint: 'http://localhost:7070/oauth/token'
 
 };

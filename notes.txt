@@ -82,3 +82,5 @@ npm config set proxy http://172.22.218.218:8085
 double click => start.cmd
 
 open browser, check localhost:7070
+
+

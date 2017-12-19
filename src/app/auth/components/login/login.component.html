@@ -1,3 +1,27 @@
-<p>
-  login works!
-</p>
+<h2>Login</h2>
+
+
+<form [formGroup]="form" >
+
+Username
+  <input name="username" formControlName="username"
+
+  />
+
+Password
+
+  <input name="password" formControlName="password"
+
+  />
+
+
+</form>
+
+
+<p> Valid: {{form.valid}}</p>
+
+<button [disabled]="form.invalid"
+
+(click)="login()">
+  Login
+</button>
