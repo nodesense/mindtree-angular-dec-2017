@@ -4,7 +4,12 @@
   import { HttpClient } from '@angular/common/http';
   import { environment } from '../../../environments/environment';
   import { Brand } from '../models/brand';
+ 
 
+
+  //Not advised to import all
+  import "rxjs/Rx";
+  
   @Injectable()
   export abstract class ProductService {
 
@@ -81,13 +86,52 @@
 
     }
 
+    //goal : brands to be cached
+    //if brands found in cache, serve from cache
+
+    //TAB based storage
+    //session storage, each tab is a session
+    //session data destroyed when tab closed
+    //storage: Storage = window.sessionStorage;
+
+
+    //Local Storage
+    //Persistent
+    //availble across tabs
+    //availble on restart browser/system
+    storage: Storage = window.localStorage;
+
 
     //GET /api/brands
     getBrands(): Observable<Brand[]> {
+      //check if data is there in cache,
+      //return from cache
+      let json = this.storage.getItem("brands");
+      if (json) { //data found
+          let brands:Brand[] = JSON.parse(json);
+           //convert brands array into 
+           //observable of brands
+           console.log("serving brands from cache");
+          return Observable.of(brands);
+      }
+
+
+
+      console.log("cache not found, serving from server");
+
       //es6 template reference variable, back quote, ${}
       //GET /api/products
       return this.httpClient
             .get<Brand[]> (`${environment.apiEndPoint}/api/brands`)
+            .map ( brands => {
+              //update the storage
+              console.log("updating brands in storage");
+
+              let json = JSON.stringify(brands);
+              this.storage.setItem("brands", json);
+
+              return brands;
+            })
   }
 
 

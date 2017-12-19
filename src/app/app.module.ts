@@ -17,6 +17,7 @@ import {RouterModule, Routes}
 
 import {LocationStrategy,
         HashLocationStrategy} from '@angular/common';
+import { AuthModule } from './auth/auth.module';
 
 
 
@@ -56,6 +57,7 @@ const routes: Routes = [
         //apply route config to angular
         //forRoot create a module
         RouterModule.forRoot(routes),
+        AuthModule
        // ProductModule
     ],
 
