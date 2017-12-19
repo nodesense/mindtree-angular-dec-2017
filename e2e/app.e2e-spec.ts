@@ -1,6 +1,8 @@
 import { AppPage } from './app.po';
+import { browser } from 'protractor';
 
-describe('product-app App', () => {
+
+xdescribe('product-app App', () => {
   let page: AppPage;
 
   beforeEach(() => {
@@ -9,6 +11,22 @@ describe('product-app App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('Product App');
   });
+
+
+  it('should load home page', () => {
+    page.navigateTo();
+    page.navigateToHome();
+    expect(page.getParagraphText()).toEqual('Product App');
+  });
+
+
+  it('should load about page', () => {
+    page.navigateTo();
+    page.navigateToPage('About');
+    expect(page.getPageTitle()).toEqual('About');
+    browser.sleep(5000);
+  });
+
 });
