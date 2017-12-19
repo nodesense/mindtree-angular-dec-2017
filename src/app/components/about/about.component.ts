@@ -9,7 +9,9 @@ export class AboutComponent implements OnInit {
 
   //ngFor and ngIf, else
 
-  members: string[] = ['Venkat', 'Nila'];
+  members: string[] = ['Venkat'
+                        , 'Nila'
+                      ];
   //ngIf
   showMembers: boolean = true;
 

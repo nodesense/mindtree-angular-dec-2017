@@ -34,10 +34,12 @@ fdescribe('ProductListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ProductListComponent);
     component = fixture.componentInstance;
+
     productService = fixture.debugElement.injector.get(ProductService);
 
     productService.getProducts = function(): Observable<Product[]> {
-      return Observable.of([]);
+      console.log("Mock called");
+      return Observable.of(<Product[]> [{id: 1}]);
     };
 
     fixture.detectChanges();
@@ -45,5 +47,7 @@ fdescribe('ProductListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    
+    expect(component.products.length).toBe(1);
   });
 });

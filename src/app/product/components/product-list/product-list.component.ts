@@ -30,6 +30,16 @@ export class ProductListComponent implements OnInit, OnDestroy {
   fetchProducts() {
     console.log("fetchProducts begin");
 
+    //promise, we cannot unsubscribe
+    //only one then (one consumer)
+    // this.productService.getProducts()
+    //                     .toPromise()
+    //                     .then( products => {
+    //                         //callback
+    //                         this.products = products;
+    //                         console.log("got products ", products);
+    //                       });
+
     this.subscription = this.productService.getProducts()
     .subscribe ( products => {
       //callback

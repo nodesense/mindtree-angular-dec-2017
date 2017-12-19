@@ -17,6 +17,9 @@ Password
 
 </form>
 
+<p *ngIf="errorMessage">
+  Error: {{errorMessage}}
+</p>
 
 <p> Valid: {{form.valid}}</p>
 

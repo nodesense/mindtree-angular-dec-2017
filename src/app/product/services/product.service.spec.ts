@@ -1,6 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule, 
+        HttpTestingController } from '@angular/common/http/testing';
 
 
 import { ProductService, ProductWebService } from './product.service';
@@ -24,30 +25,41 @@ fdescribe('ProductService', () => {
     expect(service).toBeTruthy();
   }));
 
+ 
+  
+  it('should return good response with data', (done) => {
+     
+   
 
-  xit('should return error if products request failed', (done) => {
     productService.getProducts()
-                   .subscribe((res: any) => {
-                     expect(res.failure.error.type).toBe('ERROR_LOADING_PRODUCTS');
-                     done();
-                   });
+                  .subscribe ( products => {
+                    expect(products.length).toBe(2);
+                    done();
+                  });
+                   
 
     let productsRequest = httpMock.expectOne('http://localhost:7070/api/products');
-    productsRequest.error(new ErrorEvent('ERROR_LOADING_PRODUCTS'));
+    
+    
+
+    productsRequest.flush([{id: 1}, {id: 2}]);                
+ 
+                  
 
     httpMock.verify();
   });
 
-  
-  it('should return good', (done) => {
+
+  xit('should return good one product', (done) => {
      
-    productService.getProducts()
-                  .subscribe ( products => {
-                    expect(products.length).toBe(2);
+    productService.getProduct(100)
+                  .subscribe ( product => {
+                    expect(product.id).toBe(100);
+                    done();
                   });
 
-    let productsRequest = httpMock.expectOne('http://localhost:7070/api/products');
-    productsRequest.flush([{id: 1}, {id: 2}]);                
+    let productsRequest = httpMock.expectOne('http://localhost:7070/api/products/100');
+    productsRequest.flush({id: 100});                
  
     httpMock.verify();
   });

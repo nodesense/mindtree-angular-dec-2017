@@ -41,6 +41,7 @@
 
     //GET /api/products
     getProducts(): Observable<Product[]> {
+      console.log("END POINT ", environment.apiEndPoint);
       //es6 template reference variable, back quote, ${}
       //GET /api/products
       return this.httpClient

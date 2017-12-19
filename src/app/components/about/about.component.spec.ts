@@ -24,18 +24,49 @@ fdescribe('AboutComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
     element = fixture.nativeElement;
-    fixture.detectChanges(); //trigger change detection
     expect(element.querySelectorAll('li').length).toBe(2);
-    
+  })
+
+
+  it('should create add member', () => {
+    expect(component).toBeTruthy();
+    element = fixture.nativeElement;
     component.addMember();
-    fixture.detectChanges(); //trigger change detection
+    fixture.detectChanges();
+
     expect(element.querySelectorAll('li').length).toBe(3);
+  
+    expect(element.querySelectorAll('li')[0].textContent)
+          .toContain("Venkat");
+  })
 
 
+  it('should empty list', () => {
+    expect(component).toBeTruthy();
+    element = fixture.nativeElement;
     component.empty();
-    fixture.detectChanges(); //trigger change detection
+    fixture.detectChanges();
+
     expect(element.querySelectorAll('li').length).toBe(0);
+   })
 
 
-  });
+
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  //   element = fixture.nativeElement;
+  //   fixture.detectChanges(); //trigger change detection
+  //   expect(element.querySelectorAll('li').length).toBe(2);
+    
+  //   component.addMember();
+  //   fixture.detectChanges(); //trigger change detection
+  //   expect(element.querySelectorAll('li').length).toBe(3);
+
+
+  //   component.empty();
+  //   fixture.detectChanges(); //trigger change detection
+  //   expect(element.querySelectorAll('li').length).toBe(0);
+
+
+  // });
 });

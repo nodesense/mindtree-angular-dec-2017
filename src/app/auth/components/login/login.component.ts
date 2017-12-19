@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
+import {HttpResponse} from '@angular/common/http';
 //Reactive Forms
 //control over data change
 //custom validation
@@ -65,6 +66,8 @@ export class LoginComponent implements OnInit {
 
   }
 
+  errorMessage: string;
+
   login() {
     console.log(this.username, this.password);
 
@@ -73,7 +76,21 @@ export class LoginComponent implements OnInit {
         .subscribe ( data => {
             //go to home page after login
             this.router.navigateByUrl("/");
-        });
+        },
+
+        (errorResponse: HttpResponse<any>) => {
+          if (errorResponse.status == 0) {
+            this.errorMessage = "Server not reachable"
+          }
+
+          if (errorResponse.status >= 400) {
+            this.errorMessage = `Error ${errorResponse.status} ${errorResponse.statusText}`
+          }
+          
+        }
+      
+      
+      );
   }
 
 }
