@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 
 import { HttpInterceptor, 
         HttpRequest, 
@@ -13,23 +13,26 @@ export class IntercepterService implements HttpInterceptor  {
 
   private authService: AuthService;
 
-  constructor() {
+  constructor(private injector: Injector) {
     console.log("Interceptor created");
   }
   
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    
-    console.log ("Intercepter ");
+     
+    console.log ("Intercepter ", request.url);
     //TODO: injector
-    //this.authService = this.injector.get(AuthService);
 
+    if (!this.authService) {
+      this.authService = this.injector.get(AuthService);
+    }
 
     //TODO: Inject token
-    // request = request.clone({
-    //   setHeaders: {
-    //     Authorization: `JWT ${this.authService.getToken()}`
-    //   }
-    // });
+
+    request = request.clone({
+      setHeaders: {
+        Authorization: `JWT ${this.authService.getToken()}`
+      }
+    });
     
     return next.handle(request);
   }
