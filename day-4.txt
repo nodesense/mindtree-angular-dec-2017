@@ -1,0 +1,17 @@
+Agenda
+
+  - JIT & AOT Introduction
+  -- Dynamic loading of modules [Code splitting]
+  - Performance [trackBy]
+  
+  - Cache with HTML5 Storage
+
+  - Dynamic Forms [Reactive Forms]
+  - Authentication [Http Interceptors, JWT Tokens]
+
+  - CSS/Bootstrap
+  - Unit Testing (Karma, Jasmine) 
+  - Protractor (basic explanation) E2E
+
+Auth 
+    

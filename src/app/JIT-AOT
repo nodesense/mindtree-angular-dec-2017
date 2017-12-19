@@ -1,0 +1,30 @@
+JIT - Just In Time (DEVELOPMENT) (BROWSER)
+
+    ng serge (JIT Mode) development
+
+    main.bundle.js
+        component (es5)
+        css
+        view (html)
+
+    HTML => JS (JS represent the view)
+
+production? end users browser spend time to convert 
+           html to js
+
+---
+
+AOT - Ahead of Time {Production}
+
+Build => production release => Apply AOT
+
+> ng build --prod (AOT)
+
+> ng build  (This is not AOT, JIT)
+
+AOT => HTML => TypeScript => TSC => JS (ES5) => Main.bundle.js
+
+main.bundle.js (production)
+    css
+    component [es5]
+    view (js)

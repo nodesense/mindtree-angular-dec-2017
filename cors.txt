@@ -1,0 +1,26 @@
+    Local Storage
+    Session
+    Indexed db
+
+Same origin
+    PROTOCOL, DOMAIN, PORT should be same
+    https://example.com:4200
+            local storage {
+                brands: []
+            }
+
+    https://example.com:4200/myapp2
+            you can access https://example.com:4200
+
+
+Cross Origin
+
+    http://example.com:4200
+            cannot access  https://localhost:4200
+
+     https://example.com:4288
+            cannot access  https://localhost:4200
+
+    
+     https://www.example.com:4288
+            cannot access  https://localhost:4200
