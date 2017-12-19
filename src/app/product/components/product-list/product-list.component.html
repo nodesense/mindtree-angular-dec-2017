@@ -1,5 +1,9 @@
 <h2>Product List</h2>
- 
+
+<button (click)="fetchProducts()">
+  Refresh
+</button>
+
 <table>
   <tbody>
     <tr>
@@ -11,7 +15,8 @@
     </tr>
 
 
-    <tr *ngFor="let product of products">
+    <!-- angular uses product.id to track the list -->
+    <tr *ngFor="let product of products;trackBy:trackByProduct">
       <td>{{product.name}}</td>
       <td>{{product.price}}</td>
       <td>{{product.year}}</td>

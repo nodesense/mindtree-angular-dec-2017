@@ -21,6 +21,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
  
   }
 
+  trackByProduct(index: number, product: Product){
+    //angular now track by product id
+    return product.id;
+  }
+
   
   fetchProducts() {
     console.log("fetchProducts begin");
