@@ -41,6 +41,7 @@ export class FooterComponent implements OnInit {
      .subscribe ( n => {
        this.likes = n;
      });
+
   }
 
   handleClick() {

@@ -10,6 +10,6 @@ import {platformBrowserDynamic}
 //bundled as main.bundle.js
 import { AppModule } from "./app/app.module";
 
- 
+ //JIT Compilation
 platformBrowserDynamic()
     .bootstrapModule(AppModule);

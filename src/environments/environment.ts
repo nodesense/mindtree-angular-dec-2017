@@ -5,6 +5,9 @@
 
 //debug/development environemnt
 
+console.log("DEV ENV LOADED");
+
+
 export const environment = {
   production: false,
 

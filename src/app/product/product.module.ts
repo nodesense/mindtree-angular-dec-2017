@@ -19,7 +19,12 @@ import { SaveAlertGuard } from './guards/save-alert.guard';
 
 const routes: Routes = [
   {
-    path: 'products',
+    //path: 'products',
+
+    //path is loaded from loadChildren
+    //for dynamic loading of modules
+    //app.module.ts loadChildren
+    path: '',
     component: ProductHomeComponent,
 
     //nested routing

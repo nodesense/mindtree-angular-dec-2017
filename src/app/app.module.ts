@@ -12,7 +12,8 @@ import { SharedModule } from './shared/shared.module';
 
 import {RouterModule, Routes} 
                 from "@angular/router";
-import { ProductModule } from './product/product.module';
+
+//import { ProductModule } from './product/product.module';
 
 import {LocationStrategy,
         HashLocationStrategy} from '@angular/common';
@@ -32,7 +33,15 @@ const routes: Routes = [
     {
         path: 'contact',
         component: ContactComponent
+    },
+
+    //dynamic module loading
+    {
+        path: 'products',
+        //path to module
+        loadChildren: 'app/product/product.module#ProductModule'
     }
+    
 ];
 
 //logical collection
@@ -47,7 +56,7 @@ const routes: Routes = [
         //apply route config to angular
         //forRoot create a module
         RouterModule.forRoot(routes),
-        ProductModule
+       // ProductModule
     ],
 
     //all components, pipes, directives
