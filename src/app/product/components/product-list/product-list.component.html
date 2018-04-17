@@ -16,7 +16,7 @@
 
 
     <!-- angular uses product.id to track the list -->
-    <tr *ngFor="let product of products;trackBy:trackByProduct">
+    <tr *ngFor="let product of (products$ | async);trackBy:trackByProduct">
       <td>{{product.name}}</td>
       <td>{{product.price}}</td>
       <td>{{product.year}}</td>

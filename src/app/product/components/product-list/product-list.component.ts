@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product';
@@ -13,6 +14,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
   products: Product[] = [];
 
   subscription: Subscription;
+
+  products$: Observable<Product[]>;
 
   constructor(private productService:ProductService) { }
 
@@ -40,12 +43,14 @@ export class ProductListComponent implements OnInit, OnDestroy {
     //                         console.log("got products ", products);
     //                       });
 
-    this.subscription =  this.productService.getProducts()
-    .subscribe ( products => {
-      //callback
-      this.products = products;
-      console.log("got products ", products);
-    });
+    // this.subscription =  this.productService.getProducts()
+    // .subscribe ( products => {
+    //   //callback
+    //   this.products = products;
+    //   console.log("got products ", products);
+    // });
+
+    this.products$ = this.productService.getProducts();
 
     console.log("fetchProducts end");
   }
@@ -53,7 +58,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     //cancel pendings calls if any
      
-    this.subscription.unsubscribe();
+    //this.subscription.unsubscribe();
   }
 
 }
