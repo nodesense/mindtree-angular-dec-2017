@@ -11,7 +11,7 @@ fdescribe('AboutComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ AboutComponent ]
     })
-    .compileComponents();
+    .compileComponents(); // JIT html to JS
   }));
 
   beforeEach(() => {
@@ -24,7 +24,18 @@ fdescribe('AboutComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
     element = fixture.nativeElement;
+    expect(element.querySelectorAll('li').length)
+                                      .toBe(2);
+  })
+
+
+  it('should clear all li when toggle', () => {
+    expect(component).toBeTruthy();
+    element = fixture.nativeElement;
     expect(element.querySelectorAll('li').length).toBe(2);
+    component.toggle();
+    fixture.detectChanges();
+    expect(element.querySelectorAll('li').length).toBe(0);
   })
 
 

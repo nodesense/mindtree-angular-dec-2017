@@ -5,6 +5,7 @@ import { HttpClientTestingModule,
 
 
 import { ProductService, ProductWebService } from './product.service';
+import { Product } from '../models/product';
 
 
 fdescribe('ProductService', () => {
@@ -34,23 +35,20 @@ fdescribe('ProductService', () => {
     productService.getProducts()
                   .subscribe ( products => {
                     expect(products.length).toBe(2);
+                    expect(products).toEqual(<Product[]> [{id: 1}, {id: 2}]);
+                    //expect(products[0].price).toBe(1000);
                     done();
                   });
                    
 
     let productsRequest = httpMock.expectOne('http://localhost:7070/api/products');
-    
-    
-
     productsRequest.flush([{id: 1}, {id: 2}]);                
  
-                  
-
     httpMock.verify();
   });
 
 
-  xit('should return good one product', (done) => {
+  it('should return good one product', (done) => {
      
     productService.getProduct(100)
                   .subscribe ( product => {

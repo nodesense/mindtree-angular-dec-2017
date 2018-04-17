@@ -22,8 +22,11 @@ import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './auth/guards/auth.guard';
 
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
+
 //route configuration
-const routes: Routes = [
+export const routes: Routes = [
     {
         path: '',
         component: HomeComponent
@@ -42,11 +45,10 @@ const routes: Routes = [
     {
 
         path: 'products',
-        canActivate: [AuthGuard],
+       canActivate: [AuthGuard],
         //path to module
         loadChildren: 'app/product/product.module#ProductModule'
     }
-    
 ];
 
 //logical collection
@@ -64,7 +66,8 @@ const routes: Routes = [
         //forRoot create a module
         RouterModule.forRoot(routes),
         AuthModule,
-        ProductModule
+        ProductModule,
+        BsDatepickerModule.forRoot()
     ],
 
     //all components, pipes, directives

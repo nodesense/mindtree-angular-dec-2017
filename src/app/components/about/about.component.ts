@@ -21,7 +21,7 @@ export class AboutComponent implements OnInit {
   }
 
   addMember() {
-    this.members.push("Member " + Math.random());
+    this.members.push("Member");
   }
 
   empty() {

@@ -25,7 +25,7 @@ const routes: Routes = [
     //path is loaded from loadChildren
     //for dynamic loading of modules
     //app.module.ts loadChildren
-    path: '',
+    path: 'products',
     component: ProductHomeComponent,
 
     //nested routing

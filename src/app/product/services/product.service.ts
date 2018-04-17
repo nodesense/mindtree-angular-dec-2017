@@ -29,6 +29,7 @@
 
   }
 
+
   //concrete class, create object
   @Injectable() 
   export class ProductWebService 
@@ -46,6 +47,16 @@
       //GET /api/products
       return this.httpClient
               .get<Product[]> (`${environment.apiEndPoint}/api/products`)
+              .map ( products => {
+                
+                // products = products.map (product => {
+                //   product.price = 1000;
+                //   return product;
+                // });
+                
+                
+                return <Product[]> products;
+              });
     }
 
     //GET /api/products/12345

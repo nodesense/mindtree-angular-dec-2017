@@ -40,7 +40,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     //                         console.log("got products ", products);
     //                       });
 
-    this.subscription = this.productService.getProducts()
+    this.subscription =  this.productService.getProducts()
     .subscribe ( products => {
       //callback
       this.products = products;
@@ -52,6 +52,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     //cancel pendings calls if any
+     
     this.subscription.unsubscribe();
   }
 

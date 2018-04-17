@@ -16,17 +16,6 @@ fdescribe('ProductListComponent', () => {
   let fixture: ComponentFixture<ProductListComponent>;
   let productService: ProductService;
 
-  class ProductMockService {
-    constructor() {
-      console.log("***MOCK SERVICE CREATED");
-    }
-
-    getProducts(): Observable<Product[]>  {
-      console.log("***MOCKED SERVICE ");
-      return Observable.of(<Product[]> [{id: 1, name: 'Nexus Phone ', price: 10000, year: 2018}]);
-    }
-  }
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -36,10 +25,7 @@ fdescribe('ProductListComponent', () => {
       declarations: [ ProductListComponent ],
       providers: [
         {provide: APP_BASE_HREF, useValue: '/'},
-        {
-          provide: ProductService,
-          useClass: ProductMockService
-        }
+        ProductService
       ]
     })
     .compileComponents();
@@ -51,7 +37,12 @@ fdescribe('ProductListComponent', () => {
 
     productService = fixture.debugElement.injector.get(ProductService);
 
-    
+    // mock for object function
+    productService.getProducts = function(): Observable<Product[]> {
+      console.log("Mock called");
+      return Observable.of(<Product[]> [{id: 1, name: 'Nexus Phone ', price: 10000, year: 2018}]);
+    };
+
     fixture.detectChanges();
   });
 
