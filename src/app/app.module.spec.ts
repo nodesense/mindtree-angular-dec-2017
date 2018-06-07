@@ -46,17 +46,17 @@ fdescribe('Router: App', () => {
     component = fixture.componentInstance;
     router.initialNavigation();
   });
- 
-  it('navigate to "" redirects you to /about', fakeAsync(() => { 
-    router.navigateByUrl('/contact'); 
-    tick(1000); 
-     
-    fixture.detectChanges();
 
-    console.log("-------", location.path());
-    expect(location.path()).toBe('/about'); 
-     
-  }));
+// it('navigate to "" redirects you to /about', fakeAsync(() => { 
+//   router.navigateByUrl('/contact'); 
+//   tick(1000); 
+    
+//   fixture.detectChanges();
+
+//   console.log("-------", location.path());
+//   expect(location.path()).toBe('/about'); 
+    
+// }));
 
 
   // it('navigate to "" redirects you to /about', ((done) => { 

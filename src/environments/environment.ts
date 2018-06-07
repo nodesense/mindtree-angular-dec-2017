@@ -11,7 +11,7 @@ console.log("DEV ENV LOADED");
 export const environment = {
   production: false,
 
-  apiEndPoint: 'http://localhost:7070/delayed',
+  apiEndPoint: 'http://localhost:7070',
   authEndPoint: 'http://localhost:7070/oauth/token'
 
 };

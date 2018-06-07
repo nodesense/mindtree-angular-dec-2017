@@ -35,6 +35,7 @@
   export class ProductWebService 
                     extends ProductService {
 
+
     //injecting httpclient into product service
     constructor(private httpClient: HttpClient) {
       super(); //call base cons
@@ -49,10 +50,10 @@
               .get<Product[]> (`${environment.apiEndPoint}/api/products`)
               .map ( products => {
                 
-                // products = products.map (product => {
-                //   product.price = 1000;
-                //   return product;
-                // });
+                products = products.map (product => {
+                  product.price = 1000;
+                  return product;
+                });
                 
                 
                 return <Product[]> products;
